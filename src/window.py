@@ -44,12 +44,13 @@ class MainWindow:
         tk.Button(self._root, text="Settings", command=self._on_open_settings, width=12).pack(pady=4)
 
     def set_status(self, status: str) -> None:
-        if self._status_var:
-            self._status_var.set(status)
+        if self._root and self._status_var:
+            self._root.after(0, lambda s=status: self._status_var.set(s))
 
     def set_transcript(self, text: str) -> None:
-        if self._transcript_var:
-            self._transcript_var.set(text[:80] + "..." if len(text) > 80 else text)
+        if self._root and self._transcript_var:
+            short = text[:80] + "..." if len(text) > 80 else text
+            self._root.after(0, lambda t=short: self._transcript_var.set(t))
 
     def mainloop(self) -> None:
         if self._root:

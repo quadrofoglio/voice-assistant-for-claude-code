@@ -1,5 +1,5 @@
 {
-  "stt_hotkey": "alt+space",
+  "stt_hotkey": "ctrl+shift+r",
   "tts_hotkey": "alt+r",
   "wake_word_enabled": false,
   "wake_word": "hey claude",

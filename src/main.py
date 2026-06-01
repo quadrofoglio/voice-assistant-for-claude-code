@@ -65,8 +65,15 @@ class App:
         ).show(text)
 
     def _deliver(self, text: str) -> None:
-        self._delivery.set_mode(self._settings.get("input_mode"))
-        self._delivery.deliver(text)
+        import time, pyperclip
+        mode = self._settings.get("input_mode")
+        self._delivery.set_mode(mode)
+        # Always copy to clipboard so text is always accessible via Ctrl+V
+        pyperclip.copy(text)
+        if mode == "terminal":
+            # Delay so the preview window closes and user's terminal regains focus
+            time.sleep(0.6)
+            self._delivery.deliver(text)
 
     def _open_settings(self) -> None:
         SettingsPanel(self._settings, on_save=self._on_settings_saved).show()

@@ -29,10 +29,13 @@ class MainWindow:
         self._status_var = tk.StringVar(value="Idle")
         tk.Label(self._root, textvariable=self._status_var, font=("Segoe UI", 10), fg="#555").pack()
 
-        tk.Label(self._root, text="Last transcription:", font=("Segoe UI", 9), fg="#888").pack(pady=(12, 2))
+        tk.Label(self._root, text="Last transcription (click to select):", font=("Segoe UI", 9), fg="#888").pack(pady=(12, 2))
         self._transcript_var = tk.StringVar(value="—")
-        tk.Label(self._root, textvariable=self._transcript_var, font=("Segoe UI", 10),
-                 wraplength=360, justify=tk.LEFT).pack()
+        self._transcript_entry = tk.Entry(self._root, textvariable=self._transcript_var,
+                                          font=("Segoe UI", 10), relief=tk.FLAT,
+                                          bg="#f0f0f0", readonlybackground="#f0f0f0",
+                                          state="readonly", width=46)
+        self._transcript_entry.pack(padx=10)
 
         btn = tk.Frame(self._root)
         btn.pack(pady=12)

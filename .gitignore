@@ -7,3 +7,9 @@ __pycache__/
 dist/
 build/
 .env
+
+# Large binaries — download locally via scripts/download_piper.py
+piper_bin/
+
+# Voice model files — download locally via src/piper_manager.py or manually
+voices/

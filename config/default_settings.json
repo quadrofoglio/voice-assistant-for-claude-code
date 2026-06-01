@@ -1,0 +1,15 @@
+{
+  "stt_hotkey": "alt+space",
+  "tts_hotkey": "alt+r",
+  "wake_word_enabled": false,
+  "wake_word": "hey claude",
+  "input_mode": "terminal",
+  "tts_engine": "edge",
+  "edge_voice": "en-US-AriaNeural",
+  "piper_voice": "en_US-amy-medium",
+  "auto_play_tts": false,
+  "muted": false,
+  "preview_timeout_seconds": 2,
+  "socket_port": 47291,
+  "whisper_model": "small"
+}

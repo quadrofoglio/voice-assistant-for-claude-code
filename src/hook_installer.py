@@ -2,9 +2,10 @@ import json
 import pathlib
 import shutil
 import sys
+from src.paths import bundle_dir
 
 CLAUDE_SETTINGS_PATH = pathlib.Path.home() / ".claude" / "settings.json"
-HOOK_SCRIPT_SRC = pathlib.Path(__file__).parent.parent / "hook" / "stop_hook.py"
+HOOK_SCRIPT_SRC = bundle_dir() / "hook" / "stop_hook.py"
 
 def install_hook(hook_dest_dir: pathlib.Path = None) -> None:
     hook_dest_dir = hook_dest_dir or pathlib.Path.home() / ".claude" / "hooks"

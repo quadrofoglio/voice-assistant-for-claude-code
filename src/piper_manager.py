@@ -1,8 +1,9 @@
 import pathlib
 import urllib.request
 from typing import Callable
+from src.paths import exe_dir
 
-VOICES_DIR = pathlib.Path("voices")
+VOICES_DIR = exe_dir() / "voices"
 HF_BASE = "https://huggingface.co/rhasspy/piper-voices/resolve/main"
 
 AVAILABLE_VOICES = {

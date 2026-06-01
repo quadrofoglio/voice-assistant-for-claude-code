@@ -3,6 +3,7 @@ from PIL import Image
 import pathlib
 import threading
 from typing import Callable
+from src.paths import bundle_dir
 
 class AppTray:
     def __init__(self, on_open: Callable, on_quit: Callable, on_mute_toggle: Callable):
@@ -13,7 +14,7 @@ class AppTray:
         self._muted = False
 
     def start(self) -> None:
-        image = Image.open(pathlib.Path("assets/icon.png"))
+        image = Image.open(bundle_dir() / "assets" / "icon.png")
         menu = pystray.Menu(
             pystray.MenuItem("Open", self._on_open, default=True),
             pystray.MenuItem("Mute TTS", self._toggle_mute, checked=lambda item: self._muted),

@@ -1,11 +1,12 @@
 import json
 import pathlib
 from typing import Any
+from src.paths import bundle_dir
 
 
 class Settings:
     def __init__(self, config_path: pathlib.Path = None, defaults_path: pathlib.Path = None):
-        self._defaults_path = defaults_path or pathlib.Path("config/default_settings.json")
+        self._defaults_path = defaults_path or bundle_dir() / "config" / "default_settings.json"
         self._config_path = config_path or pathlib.Path.home() / ".voice_assistant" / "settings.json"
         self._config_path.parent.mkdir(parents=True, exist_ok=True)
         self._defaults = json.loads(self._defaults_path.read_text())

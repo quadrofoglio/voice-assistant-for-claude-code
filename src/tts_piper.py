@@ -2,9 +2,10 @@ import pathlib
 import subprocess
 import tempfile
 import os
+from src.paths import exe_dir
 
-VOICES_DIR = pathlib.Path("voices")
-PIPER_EXE = next(pathlib.Path("piper_bin").rglob("piper.exe"), None) if pathlib.Path("piper_bin").exists() else None
+VOICES_DIR = exe_dir() / "voices"
+PIPER_EXE = next(exe_dir().joinpath("piper_bin").rglob("piper.exe"), None) if exe_dir().joinpath("piper_bin").exists() else None
 
 
 class PiperTTS:

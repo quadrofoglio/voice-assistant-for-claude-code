@@ -6,208 +6,42 @@
   <title>Voice Assistant — User Guide</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: #f4f6f9;
-      color: #1a1a2e;
-      line-height: 1.7;
-    }
-
-    header {
-      background: linear-gradient(135deg, #0078d4, #005a9e);
-      color: white;
-      padding: 48px 40px 40px;
-      text-align: center;
-    }
+    body { font-family: "Segoe UI", system-ui, sans-serif; background: #f4f6f9; color: #1a1a2e; line-height: 1.7; }
+    header { background: linear-gradient(135deg, #0078d4, #005a9e); color: white; padding: 48px 40px 40px; text-align: center; }
     header h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 8px; }
     header p  { font-size: 1.1rem; opacity: 0.88; }
-
-    nav {
-      background: #fff;
-      border-bottom: 1px solid #dde3ed;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 24px;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      color: #0078d4;
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 20px;
-      border: 1px solid #c7dff7;
-      transition: background 0.15s;
-    }
+    nav { background: #fff; border-bottom: 1px solid #dde3ed; display: flex; justify-content: center; gap: 8px; padding: 12px 24px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
+    nav a { color: #0078d4; text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; border: 1px solid #c7dff7; transition: background 0.15s; }
     nav a:hover { background: #e8f2fb; }
-
     main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-
     section { margin-bottom: 52px; }
-
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #003d73;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #c7dff7;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    h2 { font-size: 1.5rem; font-weight: 700; color: #003d73; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #c7dff7; display: flex; align-items: center; gap: 10px; }
     h2 .icon { font-size: 1.4rem; }
-
-    h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #0078d4;
-      margin: 24px 0 8px;
-    }
-
+    h3 { font-size: 1.05rem; font-weight: 700; color: #0078d4; margin: 24px 0 8px; }
     p { margin-bottom: 12px; }
-
     ul, ol { padding-left: 22px; margin-bottom: 12px; }
     li { margin-bottom: 6px; }
-
-    .card {
-      background: #fff;
-      border: 1px solid #dde3ed;
-      border-radius: 10px;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    }
-
-    .card-title {
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 6px;
-      color: #0056a3;
-    }
-
-    kbd {
-      display: inline-block;
-      background: #1a1a2e;
-      color: #e8f2fb;
-      font-family: "Cascadia Code", "Consolas", monospace;
-      font-size: 0.82rem;
-      padding: 2px 8px;
-      border-radius: 5px;
-      border-bottom: 2px solid #444;
-      white-space: nowrap;
-    }
-
-    .step {
-      display: flex;
-      gap: 14px;
-      margin-bottom: 14px;
-      align-items: flex-start;
-    }
-    .step-num {
-      background: #0078d4;
-      color: white;
-      font-weight: 700;
-      font-size: 0.8rem;
-      min-width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
+    .card { background: #fff; border: 1px solid #dde3ed; border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 6px; color: #0056a3; }
+    kbd { display: inline-block; background: #1a1a2e; color: #e8f2fb; font-family: "Cascadia Code","Consolas",monospace; font-size: 0.82rem; padding: 2px 8px; border-radius: 5px; border-bottom: 2px solid #444; white-space: nowrap; }
+    .step { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; }
+    .step-num { background: #0078d4; color: white; font-weight: 700; font-size: 0.8rem; min-width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px; flex-shrink: 0; }
     .step-body { flex: 1; }
-
-    .hotkey-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
-    .hotkey-table th {
-      background: #003d73;
-      color: white;
-      font-weight: 600;
-      font-size: 0.85rem;
-      padding: 10px 14px;
-      text-align: left;
-    }
-    .hotkey-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid #eef1f7;
-      font-size: 0.93rem;
-      vertical-align: top;
-    }
-    .hotkey-table tr:nth-child(even) td { background: #f7f9fc; }
-
-    .note {
-      background: #fffbe6;
-      border-left: 4px solid #f0b429;
-      padding: 12px 16px;
-      border-radius: 0 6px 6px 0;
-      font-size: 0.92rem;
-      margin-bottom: 14px;
-    }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+    th { background: #003d73; color: white; font-weight: 600; font-size: 0.85rem; padding: 10px 14px; text-align: left; }
+    td { padding: 10px 14px; border-bottom: 1px solid #eef1f7; font-size: 0.93rem; vertical-align: top; }
+    tr:nth-child(even) td { background: #f7f9fc; }
+    .note { background: #fffbe6; border-left: 4px solid #f0b429; padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.92rem; margin-bottom: 14px; }
     .note strong { color: #7a5c00; }
-
-    .tip {
-      background: #edfaf4;
-      border-left: 4px solid #38b27a;
-      padding: 12px 16px;
-      border-radius: 0 6px 6px 0;
-      font-size: 0.92rem;
-      margin-bottom: 14px;
-    }
+    .tip { background: #edfaf4; border-left: 4px solid #38b27a; padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.92rem; margin-bottom: 14px; }
     .tip strong { color: #1d6b47; }
-
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 10px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
+    .warn { background: #fff0f0; border-left: 4px solid #e53e3e; padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: 0.92rem; margin-bottom: 14px; }
+    .warn strong { color: #c00; }
+    code { background: #eef1f7; font-family: "Cascadia Code",Consolas,monospace; font-size: 0.85rem; padding: 1px 6px; border-radius: 4px; }
+    .badge { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
     .badge-online  { background: #e8f2fb; color: #0056a3; }
     .badge-offline { background: #edfaf4; color: #1d6b47; }
-    .badge-free    { background: #fdf3e7; color: #7a5c00; }
-
-    code {
-      background: #eef1f7;
-      font-family: "Cascadia Code", Consolas, monospace;
-      font-size: 0.85rem;
-      padding: 1px 6px;
-      border-radius: 4px;
-    }
-
-    pre {
-      background: #1a1a2e;
-      color: #c5d8f0;
-      font-family: "Cascadia Code", Consolas, monospace;
-      font-size: 0.85rem;
-      padding: 16px 18px;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin-bottom: 14px;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.82rem;
-      color: #888;
-      padding: 32px;
-      border-top: 1px solid #dde3ed;
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      main { padding: 24px 16px 60px; }
-    }
+    footer { text-align: center; font-size: 0.82rem; color: #888; padding: 32px; border-top: 1px solid #dde3ed; }
   </style>
 </head>
 <body>
@@ -218,330 +52,242 @@
 </header>
 
 <nav>
-  <a href="#getting-started">Getting Started</a>
-  <a href="#speaking">Speaking to Claude</a>
-  <a href="#listening">Hearing Responses</a>
+  <a href="#install">Installation</a>
+  <a href="#launch">Launching</a>
+  <a href="#speaking">Speaking</a>
+  <a href="#listening">Listening</a>
   <a href="#settings">Settings</a>
   <a href="#hotkeys">Hotkeys</a>
-  <a href="#tts-engines">TTS Engines</a>
-  <a href="#input-modes">Input Modes</a>
-  <a href="#wake-word">Wake Word</a>
+  <a href="#modes">Input Modes</a>
+  <a href="#tts">TTS Engines</a>
   <a href="#troubleshooting">Troubleshooting</a>
 </nav>
 
 <main>
 
-  <!-- GETTING STARTED -->
-  <section id="getting-started">
-    <h2><span class="icon">🚀</span> Getting Started</h2>
-
-    <h3>First Launch</h3>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-body">Navigate to <code>dist\</code> inside the project folder and double-click <strong>VoiceAssistant.exe</strong>.</div>
+  <!-- INSTALLATION -->
+  <section id="install">
+    <h2><span class="icon">📦</span> Installation</h2>
+    <p>The app is pre-installed at:</p>
+    <div class="card" style="font-family:monospace;font-size:0.95rem;">
+      C:\Users\limfy\AppData\Local\VoiceAssistant\VoiceAssistant.exe
     </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-body">A small window opens and a blue icon appears in your <strong>system tray</strong> (bottom-right corner of the taskbar).</div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-body">On first run, the app automatically configures Claude Code's Stop hook so responses are forwarded to the app. <strong>No manual setup needed.</strong></div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-body">To create a desktop shortcut, right-click <code>VoiceAssistant.exe</code> → <strong>Send to → Desktop (create shortcut)</strong>.</div>
-    </div>
+    <p>To create a desktop shortcut: open File Explorer, navigate to the folder above, right-click <strong>VoiceAssistant.exe</strong> → <strong>Send to → Desktop (create shortcut)</strong>.</p>
 
     <div class="note">
-      <strong>Note:</strong> Make sure <code>voices\</code> and <code>piper_bin\</code> folders are in the same directory as <code>VoiceAssistant.exe</code> for offline TTS to work.
-    </div>
-
-    <h3>What the Main Window Shows</h3>
-    <div class="card">
-      <div class="card-title">Status</div>
-      Shows the current state: <em>Idle</em>, <em>Recording…</em>, or <em>Transcribing…</em>
-    </div>
-    <div class="card">
-      <div class="card-title">Last Transcription</div>
-      The most recent thing you said (after STT processed it).
-    </div>
-    <div class="card">
-      <div class="card-title">Play Response</div>
-      Reads Claude's last response aloud. Same as pressing <kbd>Alt</kbd> + <kbd>R</kbd>.
-    </div>
-    <div class="card">
-      <div class="card-title">Mute</div>
-      Silences TTS output without closing the app.
-    </div>
-    <div class="card">
-      <div class="card-title">Settings</div>
-      Opens the settings panel to configure hotkeys, voices, and modes.
+      <strong>Note:</strong> The <code>voices\</code> and <code>piper_bin\</code> folders must stay in the same folder as <code>VoiceAssistant.exe</code> for offline TTS to work.
     </div>
   </section>
 
-  <!-- SPEAKING TO CLAUDE -->
-  <section id="speaking">
-    <h2><span class="icon">🗣️</span> Speaking to Claude</h2>
-
-    <p>Use push-to-talk to dictate your message instead of typing.</p>
-
+  <!-- LAUNCHING -->
+  <section id="launch">
+    <h2><span class="icon">🚀</span> Launching the App</h2>
     <div class="step">
       <div class="step-num">1</div>
-      <div class="step-body"><strong>Hold</strong> <kbd>Alt</kbd> + <kbd>Space</kbd> — the status changes to <em>Recording…</em></div>
+      <div class="step-body">Double-click <strong>VoiceAssistant.exe</strong> from the desktop shortcut or the AppData folder.</div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <div class="step-body"><strong>Speak</strong> your message clearly into your microphone.</div>
+      <div class="step-body">A window titled <strong>"Voice Assistant"</strong> opens showing status: <em>Idle</em>.</div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <div class="step-body"><strong>Release</strong> the hotkey — the app transcribes your speech (status: <em>Transcribing…</em>).</div>
+      <div class="step-body">A <strong>blue icon</strong> appears in the system tray (bottom-right, click <strong>^</strong> to show hidden icons).</div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
-      <div class="step-body">A <strong>preview overlay</strong> appears at the bottom of your screen showing what was transcribed.</div>
+      <div class="step-body">On first run, the Claude Code Stop hook is installed automatically — no manual setup needed.</div>
+    </div>
+    <p>To close the main window without quitting: click <strong>X</strong> — the app keeps running in the tray. To fully quit: right-click the tray icon → <strong>Quit</strong>.</p>
+  </section>
+
+  <!-- SPEAKING -->
+  <section id="speaking">
+    <h2><span class="icon">🗣️</span> Speaking to Claude</h2>
+    <p>Uses <strong>toggle mode</strong> — press once to start, press again to stop. No holding required.</p>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">Open a terminal with a Claude Code session running (<code>claude</code>) and click inside it.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> — status changes to <strong>Recording…</strong> and your microphone activates.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">Speak your question clearly.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> again — status changes to <strong>Transcribing…</strong> (takes 5–15 seconds).</div>
     </div>
     <div class="step">
       <div class="step-num">5</div>
-      <div class="step-body">The text <strong>auto-sends after 2 seconds</strong>. Click <strong>Send</strong> to send immediately or <strong>Cancel</strong> to discard.</div>
+      <div class="step-body">A <strong>preview overlay</strong> appears at the bottom of your screen showing the transcription. Auto-sends in 2 seconds, or click <strong>Send</strong> / <strong>Cancel</strong>.</div>
     </div>
     <div class="step">
       <div class="step-num">6</div>
-      <div class="step-body">The text is delivered to your active window — either <strong>auto-typed</strong> (terminal mode) or <strong>copied to clipboard</strong> (clipboard mode).</div>
+      <div class="step-body">
+        The text is delivered based on your <strong>Input Mode</strong>:
+        <ul style="margin-top:6px;">
+          <li><strong>Terminal mode</strong> — auto-types into your active terminal (click the terminal first, then press Enter to submit to Claude)</li>
+          <li><strong>Clipboard mode</strong> — copies to clipboard, press <kbd>Ctrl</kbd>+<kbd>V</kbd> to paste anywhere</li>
+        </ul>
+        In both modes, the text is also always copied to clipboard as a backup.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-body">The transcription appears in the main window under <strong>Last transcription</strong> — click on it to select and copy manually.</div>
     </div>
 
     <div class="tip">
-      <strong>Tip:</strong> In terminal mode, your text lands in the terminal but is not submitted — press <kbd>Enter</kbd> yourself to send it to Claude Code.
+      <strong>Tip:</strong> The first transcription after launch takes longer (~15s) as Whisper loads into memory. Subsequent ones are faster (~3–8s).
     </div>
-
-    <h3>Speech Recognition Model</h3>
-    <p>The app uses <strong>OpenAI Whisper</strong> running locally on your machine — no internet required for transcription. The default model is <code>small</code>, which balances accuracy and speed well. You can switch to <code>tiny</code> (faster) or <code>medium</code> (more accurate) in Settings.</p>
   </section>
 
-  <!-- HEARING RESPONSES -->
+  <!-- LISTENING -->
   <section id="listening">
     <h2><span class="icon">🔊</span> Hearing Claude's Responses</h2>
+    <p>When Claude Code finishes responding, the app captures the response text via a background hook.</p>
 
-    <p>When Claude Code finishes responding, the app automatically captures the response text and can read it aloud.</p>
-
-    <h3>On-Demand Playback (default)</h3>
-    <p>Press <kbd>Alt</kbd> + <kbd>R</kbd> at any time to hear Claude's last response read aloud. This is the default — you control when to listen.</p>
+    <h3>On-Demand (default)</h3>
+    <p>Press <kbd>Alt</kbd>+<kbd>R</kbd> to hear the last response read aloud. Use this when you want to listen at your own pace.</p>
 
     <h3>Auto-Play</h3>
-    <p>Enable <strong>Auto-play TTS</strong> in Settings → Output to have every response read automatically the moment Claude finishes. Useful when you're not looking at the screen.</p>
+    <p>Enable <strong>Auto-play TTS</strong> in Settings → Output to hear every response automatically.</p>
 
-    <h3>What Gets Read</h3>
-    <p>The app reads only the <strong>conversational prose</strong> — explanations, summaries, and answers. It automatically skips:</p>
-    <ul>
-      <li>Code blocks (fenced with ``` or inline with backticks)</li>
-      <li>URLs and links</li>
-      <li>Markdown headers and formatting symbols</li>
-    </ul>
-    <p>The surrounding explanation of what code does <em>is</em> read — so you hear the context without sitting through 50 lines of Python being read character by character.</p>
+    <h3>What gets read</h3>
+    <p>Only conversational prose — explanations, summaries, answers. Automatically skipped: code blocks, URLs, markdown headers.</p>
 
     <h3>Muting</h3>
-    <p>Click <strong>Mute</strong> in the main window, or right-click the tray icon and select <strong>Mute TTS</strong>, to silence all audio output instantly.</p>
+    <p>Click <strong>Mute</strong> in the main window, or right-click the tray icon → <strong>Mute TTS</strong>.</p>
   </section>
 
   <!-- SETTINGS -->
   <section id="settings">
-    <h2><span class="icon">⚙️</span> Settings Panel</h2>
-
-    <p>Open Settings from the main window button or by right-clicking the tray icon.</p>
+    <h2><span class="icon">⚙️</span> Settings</h2>
+    <p>Click <strong>Settings</strong> in the main window to open the settings panel.</p>
 
     <h3>Input (STT) Tab</h3>
-    <table class="hotkey-table">
+    <table>
       <tr><th>Setting</th><th>Description</th></tr>
-      <tr><td><strong>Push-to-talk hotkey</strong></td><td>The key combo to hold while speaking. Default: <code>alt+space</code></td></tr>
-      <tr><td><strong>Input mode</strong></td><td>How transcribed text is delivered — <em>terminal</em> (auto-type) or <em>clipboard</em> (copy)</td></tr>
-      <tr><td><strong>Enable wake word</strong></td><td>Toggle always-on listening with a trigger phrase instead of holding a key</td></tr>
-      <tr><td><strong>Wake word</strong></td><td>The phrase to say to start recording (e.g. "hey claude")</td></tr>
-      <tr><td><strong>Whisper model</strong></td><td>STT accuracy/speed tradeoff: tiny → base → small → medium</td></tr>
+      <tr><td><strong>Push-to-talk hotkey</strong></td><td>Key combo to toggle recording. Default: <code>ctrl+shift+r</code></td></tr>
+      <tr><td><strong>Input mode</strong></td><td><em>terminal</em> (auto-type) or <em>clipboard</em> (copy for manual paste)</td></tr>
+      <tr><td><strong>Enable wake word</strong></td><td>Say a phrase instead of pressing a key to start recording</td></tr>
+      <tr><td><strong>Wake word</strong></td><td>The trigger phrase (default: <code>hey claude</code>)</td></tr>
+      <tr><td><strong>Whisper model</strong></td><td>Speed vs accuracy: <code>tiny</code> → <code>base</code> → <code>small</code> → <code>medium</code></td></tr>
     </table>
 
     <h3>Output (TTS) Tab</h3>
-    <table class="hotkey-table">
+    <table>
       <tr><th>Setting</th><th>Description</th></tr>
-      <tr><td><strong>TTS hotkey</strong></td><td>Press to read the last response aloud. Default: <code>alt+r</code></td></tr>
+      <tr><td><strong>TTS hotkey</strong></td><td>Press to read last response. Default: <code>alt+r</code></td></tr>
       <tr><td><strong>Auto-play TTS</strong></td><td>Read every response automatically when Claude finishes</td></tr>
-      <tr><td><strong>TTS engine</strong></td><td>Choose <em>edge</em> (online, best quality) or <em>piper</em> (offline)</td></tr>
-      <tr><td><strong>Edge voice</strong></td><td>Select from 8 curated Microsoft neural English voices</td></tr>
-      <tr><td><strong>Piper voice</strong></td><td>Select an offline neural voice; click Download to fetch it</td></tr>
+      <tr><td><strong>TTS engine</strong></td><td><em>edge</em> (online, best quality) or <em>piper</em> (offline, neural)</td></tr>
+      <tr><td><strong>Edge voice</strong></td><td>8 curated Microsoft neural English voices</td></tr>
+      <tr><td><strong>Piper voice</strong></td><td>Offline voices — click Download to fetch additional ones</td></tr>
     </table>
-
-    <div class="note">
-      <strong>Note:</strong> Click <strong>Save</strong> at the bottom of the Settings panel for changes to take effect. Hotkeys are re-registered immediately after saving.
-    </div>
+    <div class="note"><strong>Note:</strong> Click <strong>Save</strong> at the bottom for changes to take effect.</div>
   </section>
 
   <!-- HOTKEYS -->
   <section id="hotkeys">
     <h2><span class="icon">⌨️</span> Hotkey Reference</h2>
-
-    <table class="hotkey-table">
+    <table>
       <tr><th>Action</th><th>Default</th><th>Configurable</th></tr>
-      <tr>
-        <td>Start / stop recording (push-to-talk)</td>
-        <td><kbd>Alt</kbd> + <kbd>Space</kbd></td>
-        <td>Yes — Settings → Input</td>
-      </tr>
-      <tr>
-        <td>Read last Claude response</td>
-        <td><kbd>Alt</kbd> + <kbd>R</kbd></td>
-        <td>Yes — Settings → Output</td>
-      </tr>
+      <tr><td>Toggle recording (start / stop)</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd></td><td>Yes — Settings → Input</td></tr>
+      <tr><td>Read last Claude response aloud</td><td><kbd>Alt</kbd>+<kbd>R</kbd></td><td>Yes — Settings → Output</td></tr>
     </table>
-
-    <h3>Hotkey Format</h3>
-    <p>Hotkeys use the <code>keyboard</code> library's syntax. Examples:</p>
-    <ul>
-      <li><code>alt+space</code></li>
-      <li><code>ctrl+r</code></li>
-      <li><code>shift+f1</code></li>
-      <li><code>windows+v</code></li>
-    </ul>
-    <p>Valid modifiers: <code>alt</code>, <code>ctrl</code>, <code>shift</code>, <code>windows</code></p>
-
-    <div class="tip">
-      <strong>Tip:</strong> Avoid hotkeys already used by your terminal or browser (e.g. <code>ctrl+c</code>, <code>ctrl+v</code>).
-    </div>
-  </section>
-
-  <!-- TTS ENGINES -->
-  <section id="tts-engines">
-    <h2><span class="icon">🗣️</span> TTS Engines</h2>
-
-    <div class="card">
-      <div class="card-title">
-        Edge TTS
-        <span class="badge badge-online">Online</span>
-        <span class="badge badge-free">Free</span>
-      </div>
-      <p>Microsoft's neural voices. Sounds like a real person. Requires internet. Default engine.</p>
-      <p><strong>Available voices include:</strong> Aria (US female), Guy (US male), Jenny (US female), Sonia (UK female), Ryan (UK male), Natasha (AU female), William (AU male), Neerja (IN female).</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">
-        Piper TTS
-        <span class="badge badge-offline">Offline</span>
-        <span class="badge badge-free">Free</span>
-      </div>
-      <p>Neural voices that run fully on your machine. No internet needed. Slightly lower quality than Edge TTS but excellent for offline use.</p>
-      <p><strong>Default voice:</strong> <code>en_US-amy-medium</code> (bundled, ~60MB)</p>
-      <p><strong>To add more voices:</strong> Settings → Output → select Piper voice → click <strong>Download selected Piper voice</strong>.</p>
-    </div>
-
-    <h3>How Fallback Works</h3>
-    <p>If Edge TTS is selected but fails (e.g. no internet), the app automatically falls back to Piper if a voice is available. If neither works, TTS is silently skipped — you can still read the terminal.</p>
+    <h3>Hotkey format</h3>
+    <p>Use <code>keyboard</code> library syntax: <code>ctrl+shift+r</code>, <code>alt+r</code>, <code>ctrl+f9</code>, etc.</p>
+    <p>Valid modifiers: <code>ctrl</code>, <code>shift</code>, <code>alt</code>, <code>windows</code></p>
+    <div class="warn"><strong>Avoid:</strong> <code>alt+space</code> (Windows system menu), <code>ctrl+c</code>, <code>ctrl+v</code> (clipboard), <code>ctrl+z</code> (undo).</div>
   </section>
 
   <!-- INPUT MODES -->
-  <section id="input-modes">
+  <section id="modes">
     <h2><span class="icon">📋</span> Input Modes</h2>
-
     <div class="card">
-      <div class="card-title">Terminal Mode (default)</div>
-      <p>Transcribed text is <strong>auto-typed</strong> into whatever window is currently focused. Designed for use with Claude Code CLI in a terminal.</p>
-      <p>After the text appears in your terminal, press <kbd>Enter</kbd> to submit it to Claude.</p>
+      <div class="card-title">Terminal Mode</div>
+      <p>Transcribed text is <strong>auto-typed</strong> into the active window after a short delay. Click your terminal before speaking so it has focus when the text arrives.</p>
+      <p>Press <kbd>Enter</kbd> after the text appears to submit it to Claude.</p>
     </div>
-
     <div class="card">
       <div class="card-title">Clipboard Mode</div>
-      <p>Transcribed text is <strong>copied to your clipboard</strong>. Switch to this mode when using Claude.ai, ChatGPT, or any web-based AI chat. Then paste with <kbd>Ctrl</kbd> + <kbd>V</kbd>.</p>
+      <p>Transcribed text is copied to clipboard. Press <kbd>Ctrl</kbd>+<kbd>V</kbd> to paste anywhere — terminal, Claude.ai, ChatGPT, any text field.</p>
     </div>
-
-    <p>Switch between modes in <strong>Settings → Input → Input mode</strong>.</p>
-
-    <div class="tip">
-      <strong>Tip:</strong> Keep it on <em>terminal</em> by default for Claude Code, and switch to <em>clipboard</em> when you open a browser chat.
-    </div>
+    <div class="tip"><strong>Tip:</strong> In both modes, text is always copied to clipboard as backup. You can always paste even if auto-type fails.</div>
   </section>
 
-  <!-- WAKE WORD -->
-  <section id="wake-word">
-    <h2><span class="icon">👂</span> Wake Word</h2>
-
-    <p>Instead of holding a hotkey, you can say a trigger phrase to start recording hands-free — like saying "Hey Google" or "Alexa".</p>
-
-    <h3>Enable Wake Word</h3>
-    <ol>
-      <li>Open <strong>Settings → Input</strong></li>
-      <li>Check <strong>Enable wake word</strong></li>
-      <li>Set your desired phrase in the <strong>Wake word</strong> field (default: <code>hey claude</code>)</li>
-      <li>Click <strong>Save</strong></li>
-    </ol>
-
-    <h3>Usage</h3>
-    <p>Say your wake word clearly. The app starts recording. Speak your message. Pause — the app detects silence and stops recording automatically, then shows the transcription preview.</p>
-
-    <div class="note">
-      <strong>Note:</strong> Wake word detection uses always-on microphone listening and consumes slightly more CPU. Push-to-talk is recommended if you're on battery or in a noisy environment.
+  <!-- TTS -->
+  <section id="tts">
+    <h2><span class="icon">🗣️</span> TTS Engines</h2>
+    <div class="card">
+      <div class="card-title">Edge TTS <span class="badge badge-online">Online</span></div>
+      <p>Microsoft neural voices. Sounds like a real person. Requires internet. Default engine.</p>
+      <p><strong>Voices:</strong> Aria (US♀), Guy (US♂), Jenny (US♀), Sonia (GB♀), Ryan (GB♂), Natasha (AU♀), William (AU♂), Neerja (IN♀)</p>
     </div>
+    <div class="card">
+      <div class="card-title">Piper TTS <span class="badge badge-offline">Offline</span></div>
+      <p>Neural voices running fully on your machine. No internet needed. Default voice: <code>en_US-amy-medium</code> (bundled).</p>
+      <p>To add more: Settings → Output → select Piper voice → <strong>Download selected Piper voice</strong>.</p>
+    </div>
+    <p>If Edge TTS fails (no internet), the app automatically falls back to Piper.</p>
   </section>
 
   <!-- TROUBLESHOOTING -->
   <section id="troubleshooting">
     <h2><span class="icon">🔧</span> Troubleshooting</h2>
 
-    <h3>App doesn't respond to my hotkey</h3>
+    <h3>App won't start — DLL error</h3>
+    <p>A required Anaconda DLL is missing. Check the <a href="../HANDOFF.md">HANDOFF.md</a> for the rebuild procedure which bundles all needed DLLs.</p>
+
+    <h3>Stuck at Recording / won't stop</h3>
     <ul>
-      <li>Make sure the app is running (check the system tray for the blue icon)</li>
-      <li>Try running as Administrator if another app is blocking global hotkeys</li>
-      <li>Check Settings to confirm the hotkey hasn't been changed</li>
+      <li>Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> again to toggle off</li>
+      <li>If unresponsive: right-click tray icon → <strong>Quit</strong>, or Task Manager → End Task on VoiceAssistant.exe</li>
     </ul>
 
-    <h3>Text types in the wrong window</h3>
+    <h3>Transcription is slow</h3>
     <ul>
-      <li>In <em>terminal</em> mode, make sure your terminal is the active focused window when you release the hotkey</li>
-      <li>Switch to <em>clipboard</em> mode and paste manually if auto-type is unreliable</li>
+      <li>First transcription after launch is slow (model loading into memory) — subsequent ones are faster</li>
+      <li>Switch to <code>tiny</code> or <code>base</code> model in Settings for faster (less accurate) results</li>
     </ul>
 
-    <h3>TTS doesn't play anything</h3>
+    <h3>Text doesn't appear in terminal</h3>
     <ul>
-      <li>Check that <strong>Mute</strong> is not enabled (main window or tray icon)</li>
-      <li>If using Edge TTS, verify you have an internet connection</li>
-      <li>If using Piper, verify the <code>voices\</code> and <code>piper_bin\</code> folders are next to the exe</li>
-      <li>Check your Windows default media player can open .mp3 and .wav files</li>
+      <li>Make sure your terminal is the active focused window when you press Send</li>
+      <li>The text is always in your clipboard — press <kbd>Ctrl</kbd>+<kbd>V</kbd> as fallback</li>
     </ul>
 
-    <h3>Claude's responses aren't being read</h3>
+    <h3>TTS doesn't play</h3>
     <ul>
-      <li>The Claude Code Stop hook must be active. On first run it's installed automatically — restart the app to trigger re-installation if needed</li>
-      <li>Check <code>~\.claude\settings.json</code> — it should contain an entry with <code>"event": "Stop"</code> and <code>voice_assistant_stop_hook</code> in the command</li>
-      <li>Make sure the Voice Assistant app is running <em>before</em> you start a Claude Code session</li>
+      <li>Check Mute is not enabled (main window or tray)</li>
+      <li>For Edge TTS: verify internet connection</li>
+      <li>For Piper: verify <code>voices\</code> and <code>piper_bin\</code> folders are next to the exe</li>
     </ul>
 
-    <h3>Whisper model is slow to transcribe</h3>
+    <h3>Claude responses aren't captured</h3>
     <ul>
-      <li>Switch to the <code>tiny</code> or <code>base</code> model in Settings → Input → Whisper model</li>
-      <li>The first transcription after launch is slower (model loading). Subsequent ones are faster</li>
+      <li>The Voice Assistant must be running <em>before</em> you start Claude Code</li>
+      <li>Check <code>~\.claude\settings.json</code> has a Stop hook entry with <code>voice_assistant_stop_hook</code></li>
+      <li>Re-run the app — it re-installs the hook on startup if missing</li>
     </ul>
 
-    <h3>Transcription is inaccurate</h3>
-    <ul>
-      <li>Speak clearly and at a normal pace</li>
-      <li>Switch to the <code>medium</code> model for better accuracy (uses more CPU)</li>
-      <li>Reduce background noise</li>
-      <li>Use the transcription preview to catch and cancel bad transcriptions before they're sent</li>
-    </ul>
-
-    <h3>File locations</h3>
-    <table class="hotkey-table">
-      <tr><th>File</th><th>Location</th></tr>
-      <tr><td>User settings</td><td><code>C:\Users\&lt;you&gt;\.voice_assistant\settings.json</code></td></tr>
-      <tr><td>Claude Code hook config</td><td><code>C:\Users\&lt;you&gt;\.claude\settings.json</code></td></tr>
-      <tr><td>Piper voices</td><td><code>voices\</code> next to the exe</td></tr>
-      <tr><td>Piper binary</td><td><code>piper_bin\</code> next to the exe</td></tr>
+    <h3>Key file locations</h3>
+    <table>
+      <tr><th>File</th><th>Path</th></tr>
+      <tr><td>App executable</td><td><code>C:\Users\limfy\AppData\Local\VoiceAssistant\VoiceAssistant.exe</code></td></tr>
+      <tr><td>User settings</td><td><code>C:\Users\limfy\.voice_assistant\settings.json</code></td></tr>
+      <tr><td>Claude Code hook config</td><td><code>C:\Users\limfy\.claude\settings.json</code></td></tr>
+      <tr><td>Source code</td><td><code>C:\Users\limfy\OneDrive\Documents\speech-to-text-to-LLM\</code></td></tr>
+      <tr><td>GitHub</td><td><code>https://github.com/quadrofoglio/voice-assistant-for-claude-code</code></td></tr>
     </table>
   </section>
 
 </main>
-
-<footer>
-  Voice Assistant &mdash; Built with Python, faster-whisper, edge-tts, Piper TTS, and Claude Code
-</footer>
-
+<footer>Voice Assistant — Built with Python, faster-whisper, edge-tts, Piper TTS, and Claude Code</footer>
 </body>
 </html>
